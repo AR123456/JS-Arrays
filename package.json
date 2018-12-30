@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebundle": "cp src/index.html dist/index.html",
+    "bundle": "browserify src/game-start.js -t babelify --outfile dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/AR123456/JS-ES6-Tic-Tac-Toe/issues"
   },
-  "homepage": "https://github.com/AR123456/JS-ES6-Tic-Tac-Toe#readme"
+  "homepage": "https://github.com/AR123456/JS-ES6-Tic-Tac-Toe#readme",
+  "dependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "babelify": "^10.0.0",
+    "browserfy": "^1.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
 }
