@@ -1,0 +1,19 @@
+{
+  "name": "js-es6-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AR123456/JS-ES6-Tic-Tac-Toe.git"
+  },
+  "author": "Anne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AR123456/JS-ES6-Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/AR123456/JS-ES6-Tic-Tac-Toe#readme"
+}
