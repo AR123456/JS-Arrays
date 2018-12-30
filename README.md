@@ -1,1 +1,1 @@
-# JS-Arrays- practice ES6 array handleing
+# JS ES6 Tic-Tac-Toe
