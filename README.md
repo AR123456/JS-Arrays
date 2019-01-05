@@ -1,1 +1,1 @@
-# JS ES6 Tic-Tac-Toe
+# JS ES6 React Restaurant App
