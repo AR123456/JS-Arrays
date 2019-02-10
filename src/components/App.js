@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Order from "./Order";
 import Inventory from "./Inventory";
+import sampleFishes from "../sample-fishes";
 
 export class App extends Component {
   // set initial state (before running an ajax or adding to the form)
@@ -22,6 +23,9 @@ export class App extends Component {
     //using methond that is built in this.setState , because fishes property and value are the same just need to say it one time.
     this.setState({ fishes });
   };
+  loadSampleFishes = () => {
+    this.setState({ fishes: sampleFishes });
+  };
   render() {
     return (
       <div className="catch-of-the-day">
@@ -29,7 +33,10 @@ export class App extends Component {
           <Header tagline="Fresh Seafood Market" />
         </div>
         <Order />
-        <Inventory addFish={this.addFish} />
+        <Inventory
+          addFish={this.addFish}
+          loadSampleFishes={this.loadSampleFishes}
+        />
       </div>
     );
   }
