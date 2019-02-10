@@ -3,7 +3,7 @@ import Header from "./Header";
 import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
-
+import Fish from "../components/Fish";
 export class App extends Component {
   // set initial state (before running an ajax or adding to the form)
   //data can be passed down not up
@@ -31,6 +31,10 @@ export class App extends Component {
       <div className="catch-of-the-day">
         <div className="menu">
           <Header tagline="Fresh Seafood Market" />
+          <ul className="fishes" />
+          {Object.keys(this.state.fishes).map(key => (
+            <Fish key={key} details={this.state.fishes[key]} />
+          ))}
         </div>
         <Order />
         <Inventory
