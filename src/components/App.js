@@ -50,7 +50,8 @@ export class App extends Component {
             />
           ))}
         </div>
-        <Order />
+        <Order fishes={this.state.fishes} order={this.state.order} />
+        {/* <Order {...this.state} /> */}
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
