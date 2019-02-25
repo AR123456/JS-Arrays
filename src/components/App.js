@@ -4,6 +4,7 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "../components/Fish";
+import base from "../base";
 export class App extends Component {
   // set initial state (before running an ajax or adding to the form)
   //data can be passed down not up
@@ -11,6 +12,19 @@ export class App extends Component {
     fishes: {},
     order: {}
   };
+  // syncing up the fish state with firebase
+  componentDidMount() {
+    const { params } = this.props.match;
+    this.ref = base.syncState(`${params.storeId}/fishes, `, {
+      context: this,
+      state: "fishes"
+    });
+  }
+  //need to unmount so that there is not memory leakage with multiple updates
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
   // create secondary method (function) to take in fish , will need to access fish inside of it. method lives in app but needs to run in add fish form .  Use props to pass to inventory then inventory passes to add fish
   addFish = fish => {
     //This is what needs to be done to update state in react
