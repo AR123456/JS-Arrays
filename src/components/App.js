@@ -15,11 +15,24 @@ export class App extends Component {
   // syncing up the fish state with firebase
   componentDidMount() {
     const { params } = this.props.match;
+    //reinstate local storage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
     this.ref = base.syncState(`${params.storeId}/fishes, `, {
       context: this,
       state: "fishes"
     });
   }
+  //add order to local storage
+  componentDidUpdate() {
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    );
+  }
+
   //need to unmount so that there is not memory leakage with multiple updates
   componentWillUnmount() {
     base.removeBinding(this.ref);
