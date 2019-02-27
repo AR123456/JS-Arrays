@@ -50,6 +50,16 @@ export class App extends Component {
     //using methond that is built in this.setState , because fishes property and value are the same just need to say it one time.
     this.setState({ fishes });
   };
+
+  updateFish = (key, updatedFish) => {
+    //take a copy of current sate
+    const fishes = { ...this.state.fishes };
+    // update that stae
+    fishes[key] = updatedFish;
+    //stet that to state
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -81,7 +91,9 @@ export class App extends Component {
         {/* <Order {...this.state} /> */}
         <Inventory
           addFish={this.addFish}
+          updateFish={this.updateFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
         />
       </div>
     );
