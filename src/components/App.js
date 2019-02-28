@@ -60,6 +60,14 @@ export class App extends Component {
     this.setState({ fishes });
   };
 
+  deleteFish = key => {
+    //take copy of state
+    const fishes = { ...this.state.fishes };
+    // update state
+    fishes[key] = null;
+    //set state
+    this.setState({ fishes });
+  };
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -69,6 +77,14 @@ export class App extends Component {
     const order = { ...this.state.order };
     //add order or update order
     order[key] = order[key] + 1 || 1;
+    //call set state to update state object
+    this.setState({ order });
+  };
+  removeFromOrder = key => {
+    //take copy of state
+    const order = { ...this.state.order };
+    //remove from  order
+    delete order[key];
     //call set state to update state object
     this.setState({ order });
   };
@@ -87,11 +103,16 @@ export class App extends Component {
             />
           ))}
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         {/* <Order {...this.state} /> */}
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

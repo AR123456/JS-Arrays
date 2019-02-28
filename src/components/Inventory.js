@@ -12,6 +12,7 @@ class Inventory extends Component {
             index={key}
             fish={this.props.fishes[key]}
             updateFish={this.props.updateFish}
+            deleteFish={this.props.deleteFish}
           />
         ))}
         {/* the add fish function / method is now avalible to inventory as a prop that was passed from app  */}
