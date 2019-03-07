@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { formatPrice } from "../helpers";
 class Fish extends Component {
   handleClick = () => {
